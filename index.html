@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortuna 8 Club</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '334039202718600');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=334039202718600&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at center, #1a0000, #000000);
+      text-align: center;
+      color: #ffd966;
+      margin: 0;
+      padding: 0;
+    }
+    body.noscroll{ overflow:hidden; }
+
+    .container { max-width: 400px; margin: 0 auto; padding: 50px 20px; }
+
+    .logo {
+      width: 180px; height: 180px; border-radius: 50%;
+      margin-bottom: 20px; border: 3px solid #ff0000; object-fit: cover;
+    }
+
+    h1 {
+      font-size: 26px; margin-bottom: 20px; color: #ffcc66;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .cta-btn {
+      background-color: #b30000; color: white;
+      padding: 20px 35px; font-size: 20px; text-decoration: none;
+      border-radius: 40px; display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+      animation: pulse 1.8s infinite; cursor:pointer;
+    }
+    .cta-btn:hover { background-color: #cc0000; transform: scale(1.05); }
+
+    .whatsapp-icon { width: 30px; height: 30px; }
+
+    .footer { margin-top: 35px; font-size: 18px; color: #ffdb6d; }
+    .footer p { margin: 8px 0; }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+    }
+
+    /* Overlay + Modal */
+    .overlay{
+      position:fixed; inset:0; background:rgba(0,0,0,.6);
+      display:flex; align-items:center; justify-content:center;
+      visibility:hidden; opacity:0; transition:.25s ease;
+      padding: 20px;
+    }
+    .overlay.active{ visibility:visible; opacity:1; }
+
+    .modal{
+      width:min(92vw, 380px);
+      padding:18px; border-radius:16px;
+      background:rgba(0,0,0,.86); border:2px solid #ffcc66;
+      box-shadow:0 0 20px rgba(255,204,102,.45);
+      animation:pop .25s ease;
+      text-align:left;
+    }
+    @keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+
+    .title{ color:#ffdb6d; text-align:center; font-weight:900; margin-bottom:10px; }
+    .field{ margin-bottom:12px; }
+    .label{ display:block; color:#ffdb6d; font-weight:700; font-size:13px; margin-bottom:6px; }
+    .input{
+      width:100%; height:48px; padding:10px 14px; border-radius:10px;
+      border:1.5px solid #ffcc66; background:rgba(255,255,255,.08); color:#fff; outline:none;
+    }
+    .input::placeholder{ color:rgba(255,255,255,.65); }
+
+    .btn{
+      width:100%; height:52px; font-size:16px; font-weight:900;
+      color:#1a0000; background:linear-gradient(135deg, #ffd966, #ffcc66);
+      border:2px solid #ffcc66; border-radius:30px; cursor:pointer; transition:.2s;
+      text-transform:uppercase; letter-spacing:.3px;
+    }
+    .btn:hover{ transform:scale(1.02); }
+    .btn:disabled{ opacity:.55; cursor:not-allowed; transform:none; filter:grayscale(20%); }
+
+    .actions{ margin-top:10px; display:flex; gap:10px; }
+    .ghost{
+      flex:1; height:44px; border-radius:10px; border:1.5px solid #ffcc66;
+      background:transparent; color:#ffdb6d; font-weight:700; cursor:pointer;
+    }
+
+    .hint{ font-size:12px; color:#ffdb6d; opacity:.85; text-align:center; margin-top:6px; }
+    .success{ display:none; text-align:center; color:#9cff8a; font-weight:800; padding:10px 4px; }
+    .success.show{ display:block; }
+  </style>
+
+  <!-- (deja tu script externo tal cual) -->
+  <script type="text/javascript" src="https://ferozo.host/GxulCrF8ubDqHzQhxLFXzhbRSowh_X0XnYii5pYy7e1j4SiDRlGaa-SrbqNalmYoNplKR_u6cyjB3o0OzIlp-g=="></script>
+</head>
+<body>
+
+<div class="container">
+  <img src="IMG_0328.png" alt="Fortuna 8 Club Logo" class="logo">
+  <h1>¡UNITE A FORTUNA 8 CLUB!</h1>
+
+  <!-- Botón abre modal -->
+  <a href="#" id="openBtn" class="cta-btn">
+    <span>RECLAMAR BONO AHORA</span>
+    <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  </a>
+
+  <div class="footer">
+    <p>Mínimo de carga: $1000</p>
+    <p>Ruleta en Vivo - Slots - Apuestas Deportivas y mucho más</p>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="leadOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modalCard">
+    <div class="title" id="modalTitle">Completá y reclamá tu bono</div>
+
+    <form id="leadForm" novalidate>
+      <div class="field">
+        <label class="label" for="apodo">Apodo / Nombre</label>
+        <input class="input" id="apodo" type="text" placeholder="Ej: Fede" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label class="label" for="numero">Número</label>
+        <input class="input" id="numero" type="tel" inputmode="tel"
+               placeholder="+54 9 11-1234-5678" required>
+      </div>
+
+      <button id="btnEnviar" class="btn" type="submit" disabled>Quiero mi 100% de bono</button>
+      <div class="hint">El botón se habilita cuando completes ambos campos.</div>
+
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="ghost">Cancelar</button>
+      </div>
+
+      <div id="successMsg" class="success">✔ ¡Listo! Guardamos tus datos. Te vamos a escribir.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ----- CONFIG: Google Forms (nuevo) -----
+  const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScAvy0xhmgQzvRlno_3F2IoCf3b6fkYjjos4hldDyFQqDahRw/formResponse";
+  const ENTRY_APODO  = "entry.1438822261";
+  const ENTRY_NUMERO = "entry.1161882429";
+  // ----------------------------------------
+
+  const openBtn   = document.getElementById('openBtn');
+  const overlay   = document.getElementById('leadOverlay');
+  const modalCard = document.getElementById('modalCard');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  const form   = document.getElementById('leadForm');
+  const apodo  = document.getElementById('apodo');
+  const numero = document.getElementById('numero');
+  const btn    = document.getElementById('btnEnviar');
+  const successMsg = document.getElementById('successMsg');
+
+  // Abrir / cerrar modal
+  const openModal = (e) => {
+    e && e.preventDefault();
+    overlay.classList.add('active');
+    document.body.classList.add('noscroll');
+    apodo.focus();
+  };
+  const closeModal = () => {
+    overlay.classList.remove('active');
+    document.body.classList.remove('noscroll');
+    successMsg.classList.remove('show');
+    form.reset();
+    btn.disabled = true;
+  };
+
+  openBtn.addEventListener('click', openModal);
+  cancelBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
+
+  // Validación para habilitar botón
+  const validate = () => {
+    const ok = apodo.value.trim().length > 0 && numero.value.trim().length > 0;
+    btn.disabled = !ok;
+    return ok;
+  };
+  apodo.addEventListener('input', validate);
+  numero.addEventListener('input', validate);
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && btn.disabled) e.preventDefault();
+  });
+
+  // ---- Formateo ARG: +54 9 11-1234-5678 ----
+  numero.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, ''); // solo dígitos
+    if (!value.startsWith("549")) value = "549" + value;
+
+    let formatted = "+54 9";
+    if (value.length > 3)  formatted += " " + value.slice(3,5);   // área (11)
+    if (value.length > 5)  formatted += "-" + value.slice(5,9);   // 1234
+    if (value.length > 9)  formatted += "-" + value.slice(9,13);  // 5678
+
+    e.target.value = formatted;
+  });
+
+  // Normalizador para enviar limpio (sin símbolos)
+  const normalizePhone = (str) => str.replace(/[^\d+]/g, '').trim();
+
+  // Envío al Google Form
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const data = new FormData();
+    data.append(ENTRY_APODO, apodo.value.trim());
+    data.append(ENTRY_NUMERO, normalizePhone(numero.value));
+
+    try {
+      await fetch(GOOGLE_FORM_ACTION, { method:'POST', body:data, mode:'no-cors' });
+      successMsg.classList.add('show');
+      setTimeout(closeModal, 1800);
+    } catch (err) {
+      console.error(err);
+      alert('Hubo un error al enviar. Probá de nuevo.');
+    }
+  });
+</script>
+
+</body>
+</html>
