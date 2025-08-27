@@ -155,133 +155,32 @@
   <img src="IMG_0328.png" alt="Fortuna 8 Club Logo" class="logo">
   <h1>¡UNITE A FORTUNA 8 CLUB!</h1>
 
-  <!-- Botón abre modal -->
-  <a href="#" id="openBtn" class="cta-btn">
+  <a href="#" class="cta-btn" onclick="openRandomLink()">
     <span>RECLAMAR BONO AHORA</span>
     <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
   </a>
 
   <div class="footer">
-    <p style="color: #efb810;">Con tu primer depósito te bonificamos el 100%</p>
     <p>Mínimo de carga: $1000</p>
     <p>Ruleta en Vivo - Slots - Apuestas Deportivas y mucho más</p>
   </div>
 </div>
 
-<!-- MODAL -->
-<div id="leadOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal" id="modalCard">
-    <div class="title" id="modalTitle">Completá y reclamá tu bono</div>
-
-    <form id="leadForm" novalidate>
-      <div class="field">
-        <label class="label" for="apodo">Apodo / Nombre</label>
-        <input class="input" id="apodo" type="text" placeholder="Ej: Juanma" autocomplete="name" required>
-      </div>
-
-      <div class="field">
-        <label class="label" for="numero">Número</label>
-        <input class="input" id="numero" type="tel" inputmode="tel"
-               placeholder="+54 9 11-1234-5678" required>
-      </div>
-
-      <button id="btnEnviar" class="btn" type="submit" disabled>Quiero mi 100% de bono</button>
-      <div class="hint">El botón se habilita cuando completes ambos campos.</div>
-
-      <div class="actions">
-        <button type="button" id="cancelBtn" class="ghost">Cancelar</button>
-      </div>
-
-      <div id="successMsg" class="success">✔ ¡Listo! Guardamos tus datos. Te vamos a escribir.</div>
-    </form>
-  </div>
-</div>
-
 <script>
-  // ----- CONFIG: Google Forms (nuevo) -----
-  const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScNNUVST7fSQFck4CqPPrVgnTpiTZIdLYq785pXtIgy8BeTnw/formResponse";
-const ENTRY_APODO  = "entry.1847901900";
-const ENTRY_NUMERO = "entry.950692291";
-  // ----------------------------------------
+  function openRandomLink() {
+    const links = [
+      
+'https://wa.me/5491127984706?text=Hola%20quiero%20mi%20usuario',
+'https://wa.me/5491171055868?text=Hola%20quiero%20mi%20usuario',
+'https://wa.me/5491126401474?text=Hola%20quiero%20mi%20usuario',
+'https://wa.me/5491126401161?text=Hola%20quiero%20mi%20usuario',
+'https://wa.me/549112675310?text=Hola%20quiero%20mi%20usuario'
 
-  const openBtn   = document.getElementById('openBtn');
-  const overlay   = document.getElementById('leadOverlay');
-  const modalCard = document.getElementById('modalCard');
-  const cancelBtn = document.getElementById('cancelBtn');
+    ];
 
-  const form   = document.getElementById('leadForm');
-  const apodo  = document.getElementById('apodo');
-  const numero = document.getElementById('numero');
-  const btn    = document.getElementById('btnEnviar');
-  const successMsg = document.getElementById('successMsg');
-
-  // Abrir / cerrar modal
-  const openModal = (e) => {
-    e && e.preventDefault();
-    overlay.classList.add('active');
-    document.body.classList.add('noscroll');
-    apodo.focus();
-  };
-  const closeModal = () => {
-    overlay.classList.remove('active');
-    document.body.classList.remove('noscroll');
-    successMsg.classList.remove('show');
-    form.reset();
-    btn.disabled = true;
-  };
-
-  openBtn.addEventListener('click', openModal);
-  cancelBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
-
-  // Validación para habilitar botón
-  const validate = () => {
-    const ok = apodo.value.trim().length > 0 && numero.value.trim().length > 0;
-    btn.disabled = !ok;
-    return ok;
-  };
-  apodo.addEventListener('input', validate);
-  numero.addEventListener('input', validate);
-  form.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && btn.disabled) e.preventDefault();
-  });
-
-  // ---- Formateo ARG: +54 9 11-1234-5678 ----
-  numero.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, ''); // solo dígitos
-    if (!value.startsWith("549")) value = "549" + value;
-
-    let formatted = "+54 9";
-    if (value.length > 3)  formatted += " " + value.slice(3,5);   // área (11)
-    if (value.length > 5)  formatted += "-" + value.slice(5,9);   // 1234
-    if (value.length > 9)  formatted += "-" + value.slice(9,13);  // 5678
-
-    e.target.value = formatted;
-  });
-
-  // Normalizador para enviar limpio (sin símbolos)
-  const normalizePhone = (str) => str.replace(/[^\d+]/g, '').trim();
-
-  // Envío al Google Form
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    const data = new FormData();
-    data.append(ENTRY_APODO, apodo.value.trim());
-    data.append(ENTRY_NUMERO, normalizePhone(numero.value));
-
-    try {
-      await fetch(GOOGLE_FORM_ACTION, { method:'POST', body:data, mode:'no-cors' });
-      successMsg.classList.add('show');
-      setTimeout(closeModal, 1800);
-    } catch (err) {
-      console.error(err);
-      alert('Hubo un error al enviar. Probá de nuevo.');
-    }
-  });
+    const randomLink = links[Math.floor(Math.random() * links.length)];
+    window.location.href = randomLink;
+  }
 </script>
-
 </body>
 </html>
