@@ -24,7 +24,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
-  <style>
+   <style>
     body {
       font-family: 'Montserrat', sans-serif;
       background: radial-gradient(circle at center, #1a0000, #000000);
@@ -33,120 +33,82 @@
       margin: 0;
       padding: 0;
     }
-    body.noscroll{ overflow:hidden; }
 
-    .container { max-width: 400px; margin: 0 auto; padding: 50px 20px; }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
 
     .logo {
-      width: 180px; height: 180px; border-radius: 50%;
-      margin-bottom: 20px; border: 3px solid #ff0000; object-fit: cover;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #ff0000;
+      object-fit: cover;
     }
 
     h1 {
-      font-size: 26px; margin-bottom: 20px; color: #ffcc66;
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #ffcc66;
       text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
 
     .cta-btn {
-      background-color: #b30000; color: white;
-      padding: 20px 35px; font-size: 20px; text-decoration: none;
-      border-radius: 40px; display: inline-flex; align-items: center; justify-content: center;
-      gap: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      background-color: #b30000;
+      color: white;
+      padding: 20px 35px;
+      font-size: 20px;
+      text-decoration: none;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
       transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-      animation: pulse 1.8s infinite; cursor:pointer;
+      animation: pulse 1.8s infinite;
     }
-    .cta-btn:hover { background-color: #cc0000; transform: scale(1.05); }
 
-    .whatsapp-icon { width: 30px; height: 30px; }
+    .cta-btn:hover {
+      background-color: #cc0000;
+      transform: scale(1.05);
+    }
 
-    .footer { margin-top: 35px; font-size: 18px; color: #ffdb6d; }
-    .footer p { margin: 8px 0; }
+    .whatsapp-icon {
+      width: 30px;
+      height: 30px;
+    }
 
+    .footer {
+      margin-top: 35px;
+      font-size: 18px;
+      color: #ffdb6d;
+    }
+
+    .footer p {
+      margin: 8px 0;
+    }
+
+    /* Animación de pulso */
     @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
     }
-
-    /* Overlay + Modal */
-    .overlay{
-      position:fixed; inset:0; background:rgba(0,0,0,.6);
-      display:flex; align-items:center; justify-content:center;
-      visibility:hidden; opacity:0; transition:.25s ease;
-      padding: 20px;
-    }
-    .overlay.active{ visibility:visible; opacity:1; }
-
-.modal {
-  width:min(92vw, 380px);
-  padding:18px;
-  border-radius:16px;
-  background:rgba(0,0,0,.86);
-  border:2px solid #ffcc66;
-  box-shadow:0 0 20px rgba(255,204,102,.45);
-  animation:pop .25s ease;
-
-  /* cambio clave */
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-    @keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
-
-    .title{ color:#ffdb6d; text-align:center; font-weight:900; margin-bottom:10px; }
-    .field {
-  margin-bottom:12px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.label {
-  display:block;
-  color:#ffdb6d;
-  font-weight:700;
-  font-size:13px;
-  margin-bottom:6px;
-  text-align:center; /* centramos el texto del label */
-}
-
-.input {
-  width:90%; /* o 100% si querés que ocupe todo el modal */
-  max-width:300px;
-  height:48px;
-  padding:10px 14px;
-  border-radius:10px;
-  border:1.5px solid #ffcc66;
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  outline:none;
-  text-align:center; /* centramos lo que escribe el user */
-}
-    .input::placeholder{ color:rgba(255,255,255,.65); }
-
-    .btn{
-      width:100%; height:52px; font-size:16px; font-weight:900;
-      color:#1a0000; background:linear-gradient(135deg, #ffd966, #ffcc66);
-      border:2px solid #ffcc66; border-radius:30px; cursor:pointer; transition:.2s;
-      text-transform:uppercase; letter-spacing:.3px;
-    }
-    .btn:hover{ transform:scale(1.02); }
-    .btn:disabled{ opacity:.55; cursor:not-allowed; transform:none; filter:grayscale(20%); }
-
-    .actions{ margin-top:10px; display:flex; gap:10px; }
-    .ghost{
-      flex:1; height:44px; border-radius:10px; border:1.5px solid #ffcc66;
-      background:transparent; color:#ffdb6d; font-weight:700; cursor:pointer;
-    }
-
-    .hint{ font-size:12px; color:#ffdb6d; opacity:.85; text-align:center; margin-top:6px; }
-    .success{ display:none; text-align:center; color:#9cff8a; font-weight:800; padding:10px 4px; }
-    .success.show{ display:block; }
   </style>
 
-  <!-- (deja tu script externo tal cual) -->
   <script type="text/javascript" src="https://ferozo.host/GxulCrF8ubDqHzQhxLFXzhbRSowh_X0XnYii5pYy7e1j4SiDRlGaa-SrbqNalmYoNplKR_u6cyjB3o0OzIlp-g=="></script>
 </head>
 <body>
